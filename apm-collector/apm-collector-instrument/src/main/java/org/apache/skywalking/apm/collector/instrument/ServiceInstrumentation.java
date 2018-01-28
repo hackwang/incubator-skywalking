@@ -65,7 +65,7 @@ public enum ServiceInstrumentation {
 
     private ElementMatcher<? super MethodDescription> getDefaultMatcher() {
         if (excludeObjectMethodsMatcher == null) {
-            excludeObjectMethodsMatcher = not(isStatic().or(named("getClass")).or(named("hashCode")).or(named("equals")).or(named("clone"))
+            excludeObjectMethodsMatcher = (ElementMatcher)not(isStatic().or(named("getClass")).or(named("hashCode")).or(named("equals")).or(named("clone"))
                 .or(named("toString")).or(named("notify")).or(named("notifyAll")).or(named("wait")).or(named("finalize")));
         }
         return excludeObjectMethodsMatcher;
